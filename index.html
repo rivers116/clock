@@ -1,0 +1,54 @@
+<html>
+  <head>
+      <title>Clock</title>
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" href="style.css">
+  </head>
+
+  <body>
+
+      <div class="clock">
+          <div class="clock-face">
+          <div class="label">SEIKO</div>
+          <div id="hours"></div>
+          <div id="minutes"></div>
+          <div id="seconds"></div>
+          <div class="hour12"></div>
+          <div class="hour1"></div>
+          <div class="hour2"></div>
+          <div class="hour3"></div>
+          <div class="hour4"></div>
+          <div class="hour5"></div>
+         
+         </div> 
+      </div>
+
+      <script>
+    const secondshand = document.querySelector('#seconds');
+     const minutshand = document.querySelector('#minutes');
+     const hourshands = document.querySelector('#hours');
+      function setDate() {
+          const now = new Date();
+
+          const seconds = now.getSeconds();
+          const secondDegree = 6 * seconds;
+          secondshand.style.transform = `rotate(${secondDegree}deg)`;
+          
+          const minuts = now.getMinutes();
+          const minutsDegree = 6 * minuts;
+          minutshand.style.transform = `rotate(${minutsDegree}deg)`;
+          
+          
+        
+         const hours = now.getHours();
+          const hourDegree = 30 * ((hours % 12) + hours / 60);
+         hourshands.style.transform = `rotate(${hourDegree}deg)`;
+          
+      }
+      setInterval (setDate, 1000);
+          
+          //((hours / 12) * 360) + 90;
+      </script>
+  </body>  
+
+  </html>
